@@ -1,0 +1,32 @@
+<form class="layui-form search-form">
+  <div class="layui-form-item">
+
+    <div class="layui-inline">
+      <input type="text" name="name" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+    </div>
+
+    <div class="layui-inline">
+      <input type="text" name="workerId" placeholder="工号" autocomplete="off" class="layui-input">
+    </div>
+
+    <div class="layui-inline">
+      <select name="groupId" id="select-group">
+        <option value="-9">所有部门</option>
+      </select>
+    </div>
+
+    <div class="layui-inline">
+      <select name="positionId" id="select-position">
+        <option value="-9">所有职位</option>
+      </select>
+    </div>
+
+    <div class="layui-inline">
+      <button class="layui-btn" lay-submit lay-filter="formSearch">查询</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+
+  </div>
+</form>
+
+<table id="table-dom"></table>

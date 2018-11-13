@@ -1,0 +1,39 @@
+<script>
+  $(function () {
+    var tabCols = [{
+      field: 'id',
+      title: '序号',
+      unresize: true,
+      width: 60,
+      templet:function(d){
+        var _html = '';
+        if(d.hasBranch){
+          "<i class='layui-icon layui-icon-triangle-d'></i>"+d.id
+        }
+      }
+    }, {
+      field: 'department',
+      title: '部门'
+    }, {
+      field: 'number',
+      title: '人数',
+      sort: true
+    }, {
+      field: 'createday',
+      title: '创建时间'
+    }, {
+      title: '操作',
+      templet: function (d) {
+        return getTableActTmp(d, {
+          view: true,
+          delet: true
+        })
+      }
+    }];
+    var tabTools = '<button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe608;</i> 创建新部门</button>';
+    var defaultData = {
+      
+    };
+    var workerManage = initTreeTable('#tree-table', 'api/treeTable', tabCols, tabTools, defaultData);
+  })
+</script>

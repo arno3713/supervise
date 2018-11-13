@@ -1,0 +1,63 @@
+<% 
+  function checkCurr(curr,list){
+    for(var em in list){
+      if(list[em].name == curr){
+        return 'layui-nav-itemed'
+      }
+      if(list[em].child != undefined){
+        for(var rm in list[em].child){
+          if(list[em].child[rm].name == curr){
+            return 'layui-nav-itemed'
+          }
+        }
+      }
+    }
+    return '';
+  }
+%>
+
+<div class="layui-side layui-bg-black">
+  <div class="layui-side-scroll">
+    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+    <ul class="layui-nav layui-nav-tree">
+      <% for(var i=0;i<nav.length;i++){ %>
+        <li class="layui-nav-item <%= nav[i].name == curr ? 'layui-nav-itemed' : (nav[i].child != undefined ? checkCurr(curr,nav[i].child) : '') %>">
+        <% if(nav[i].child == undefined){ %>
+          <a href="<%= nav[i].link %>"><i class="<%= nav[i].icon %>"></i><%= nav[i].name %></a>
+        <% }else{ var childA =  nav[i].child; %>
+          <a href="javascript:;"><i class="<%= nav[i].icon %>"></i><%= nav[i].name %></a>
+          <dl class="layui-nav-child">
+            <% for(var k=0;k<childA.length;k++){ %>
+              <dd class="<%= childA[k].name == curr ? 'layui-nav-itemed' : (childA[k].child != undefined ? checkCurr(curr,childA[k].child) : '') %>">
+                <% if(childA[k].child == undefined){ %>
+                  <a href="<%= childA[k].link %>"><i class="icon-circle-blank"></i><%= childA[k].name %></a>
+                <% }else{ var childB =  childA[k].child; %>
+                  <a href="javascript:;"><i class="icon-circle-blank"></i><%= childA[k].name %></a>
+                  <dl class="layui-nav-child">
+                  <% for(var l=0;l<childB.length;l++){ %>
+                    <dd class="<%= childB[l].name == curr ? 'layui-nav-itemed' : (childB[l].child != undefined ? checkCurr(curr,childB[l].child) : '') %>">
+                      <% if(childB[l].child == undefined){ %>
+                        <a href="<%= childB[l].link %>"><i class="icon-circle-blank"></i><%= childB[l].name %></a>
+                      <% }else{ var childC =  childB[l].child; %>
+                        <a href="javascript:;"><i class="icon-circle-blank"></i><%= childB[l].name %></a>
+                        <dl class="layui-nav-child">
+                        <% for(var n=0;n<childC.length;n++){ %>
+                          <dd class="<%= childC[n].name == curr ? 'layui-nav-itemed' : (childC[n].child != undefined ? checkCurr(curr,childC[n].child) : '') %>">
+                            <a href="<%= childC[n].link %>"><i class="icon-circle-blank"></i><%= childC[n].name %></a>
+                          </dd>
+                        <% } %>
+                        </dl>
+                      <% } %>
+                    </dd>
+                  <% } %>
+                  </dl>
+                <% } %>
+              </dd>
+            <% } %>
+          </dl>
+        <% } %>
+        </li>
+      <%}%>
+    </ul>
+  </div>
+</div>

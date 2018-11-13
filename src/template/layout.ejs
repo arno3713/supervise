@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title><%= pageTitle %> | 后台管理</title>
+  <link rel="stylesheet" href="./front/layui/css/layui.css">
+  <link href="./front/css/font-awesome.css" rel="stylesheet">
+  <link href="./front/css/site.css" rel="stylesheet">
+  <script src="./front/js/jquery-2.1.4.min.js"></script>
+  <%= topsource %>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <!-- 头部 -->
+  <%= header %>
+  <!-- 头部 -->
+  <!-- 左侧垂直导航 -->
+  <%= leftNav %>
+  <!-- 左侧垂直导航 -->
+  
+  <div class="layui-body">
+    <div style="padding: 15px;">
+      <!-- 面包屑导航 -->
+      <p class="layui-breadcrumb">
+        <%= pf.pageTitle %>
+      </p>
+      <!-- 面包屑导航 -->
+      <!-- 内容主体区域 -->
+      <%= content %>
+      <!-- 内容主体区域 -->
+    </div>
+  </div>
+  
+  <%= footer %>
+</div>
+<script src="./front/layui/layui.all.js"></script>
+<script src="./front/mockjs/mock.js"></script>
+<script src="./front/mockjs/mockjs.js"></script>
+<script src="./front/js/init-lay.js"></script>
+<script src="./front/js/public.js"></script>
+<script src="./front/js/site.js"></script>
+<%= botsource %>
+</body>
+</html>

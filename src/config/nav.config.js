@@ -1,0 +1,48 @@
+module.exports = [{
+  "name":"首页",
+  "link":"/",
+  "icon":"icon-home"
+},{
+  "name":"管理",
+  "link":"/",
+  "icon":"icon-cogs",
+  "child":[{
+    "name":"部门管理",
+    "link":"/部门管理.html"
+  },{
+    "name":"员工",
+    "link":"/",
+    "child":[{
+      "name":"员工管理",
+      "link":"/员工管理.html"
+    },{
+      "name":"三级菜单2",
+      "link":"/"
+    }]
+  }]
+},{
+  "name":"多级菜单",
+  "link":"/",
+  "icon":"icon-reorder",
+  "child":[{
+    "name":"一级菜单",
+    "link":"/",
+    "child":[{
+      "name":"二级菜单",
+      "link":"/"
+    },{
+      "name":"二级菜单",
+      "link":"/",
+      "child":[{
+        "name":"三级菜单",
+        "link":"/"
+      },{
+        "name":"三级菜单",
+        "link":"/"
+      }]
+    }]
+  },{
+    "name":"一级菜单",
+    "link":"/"
+  }]
+}]

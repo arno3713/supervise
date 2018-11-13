@@ -1,0 +1,234 @@
+@import './base'
+
+body
+  // font-family: 'PingFang SC','\5FAE\8F6F\96C5\9ED1','Tahoma','Arial','sans-serif',layui-icon
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif
+  font-weight: 400
+
+$hhid = 50px
+
+/* 公共 */
+.layui-layout-admin
+  .layui-body
+    background: #ecf0f5
+    top: $hhid
+    bottom: 0
+    left: 230px
+  .layui-logo
+    color: #fff
+    line-height: $hhid
+    width: 230px
+  .layui-header
+    background: #3c8dbc
+    height: $hhid
+    .layui-nav-item
+      padding: 10px 0
+      z-index: 2
+      a
+        line-height: 30px
+        border-radius: 5px
+        color: #fff
+    .layui-nav-bar
+      height: 30px
+      border-radius: 5px
+      top: 0 !important
+      bottom: 0 !important
+      background: #35b04c
+      margin: auto
+      z-index: 1 !important
+  // 侧边栏
+  .layui-side
+    background: #222d32 !important
+    top: $hhid
+    width: 230px
+    .layui-side-scroll
+      width: 250px
+    .layui-nav-bar
+      display: none !important
+    .layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after
+      display: none !important
+    .layui-nav
+      font-size: 14px
+      // [class^="icon-"],[class*="icon-"]
+      //   font-size: 14px
+      *
+        font-size: inherit
+      width: 230px
+      background: transparent
+      .layui-this
+        background: transparent
+      >.layui-nav-item
+        [class^="icon-"],[class*="icon-"]
+          display: inline-block
+          vertical-align: middle
+          width: 25px
+        >a
+          color: #b8c7ce
+          border-left: 2px solid transparent
+          transition: .8s
+          transition-property: background
+          &:hover
+            background: #1e282c
+        &.layui-nav-itemed>a
+          color: #fff
+          background: #1e282c
+          border-left: 2px solid #3c8dbc
+        .layui-nav-child
+          background: #2c3b41 !important
+          padding-left: 5px
+          box-sizing: border-box
+          a
+            height: 30px
+            line-height: 30px
+            color: #8aa4af
+            background: transparent
+          .layui-nav-child
+            padding-left: 20px
+            .layui-nav-child
+              padding-left: 16px
+  .layui-card
+    border: 1px solid #e6e6e6
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.1)
+    margin-bottom: 15px
+    .layui-card-header
+      background: #f5f5f5
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,.1)
+      font-weight: bold
+      color: #47496a
+      &:before
+        content: "\e66e"
+        margin-right: 5px
+        vertical-align: middle
+
+/* 面包屑导航 */
+.layui-breadcrumb
+  display block
+  font-size: 24px
+  margin-bottom: 15px
+  color: #333
+  >a
+    color: #333 !important
+    font-weight: 100
+
+
+/* 表格重写 */
+.search-form
+  padding: 10px 15px
+  background: #fff
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1)
+  .layui-form-item
+    margin: 0
+  .layui-inline
+    margin-bottom: 0
+    padding: 5px 0
+.layui-form.layui-border-box.layui-table-view
+  background: #ffffff
+  margin-bottom: 20px
+  border-top: 3px solid #d2d6de
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1)
+  .layui-table-page
+    text-align: right
+    padding-right: 15px
+.layui-table-tool
+  background: #fff
+.layui-table th
+  background: #fff
+  color: #333
+  font-weight: bold
+.layui-table td
+  color: #333
+.layui-table .layui-btn-group
+  vertical-align: top
+  .layui-btn
+    height: 25px
+    line-height: 25px
+    font-size: 12px
+
+
+
+.table-title
+  padding: 10px 0
+  font-size: 14px
+  border-bottom: 1px solid #e6e6e6
+  &:before
+    content: "\e62d"
+    margin-right: 5px
+    vertical-align: middle
+    font-size: 16px
+
+.layui-rate,.choose-star
+  padding: 0
+
+.bot-center-btn
+  text-align: center
+  padding: 30px 0
+
+.lg-pic-wrap
+  .lpw-pic
+    display: inline-block
+    width: 150px
+    height: 150px
+    border: 1px dashed #f5f5f5
+    border-radius: 5px
+    margin: 0 10px 10px 0
+
+
+
+.inline-pic
+  display: inline-block
+  width: 80px
+  height: 80px
+  border: 1px dashed #f5f5f5
+  border-radius: 5px
+
+.layui-form-subfield
+  .layui-form-item
+    width: 50%
+    float: left
+.hide{display:none}
+.layui-btn
+  background-color: #3c8dbc
+.layui-btn-primary
+  background-color: #fff
+.layui-btn-normal
+  background-color: #1E9FFF
+.layui-btn-warm
+  background-color: #FFB800
+.layui-btn-danger
+  background-color: #FF5722;
+.layui-btn-disabled
+  background-color: #FBFBFB;
+
+.layui-table-init .layui-icon.layui-icon-loading
+  color: #666
+  animation: loading-icon 1s infinite
+  @keyframes loading-icon
+    0%
+      transform: rotate(0deg)
+    100%
+      transform: rotate(360deg)
+
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em
+  background: #3c8dbc
+
+// 弹出层
+body .dialog-class
+  .layui-layer-title
+    background#fff
+    color#666
+    border none
+  .layui-layer-btn
+    text-align center
+    border-top 1px solid#E9E7E7
+    padding 10px
+  .layui-layer-btn .layui-layer-btn0
+    background #ff6969
+    color #fff
+    border 0
+    padding 5px 30px
+  .layui-layer-btn .layui-layer-btn1
+    background #8f8f8f
+    color #fff
+    border 0
+    padding 5px 30px

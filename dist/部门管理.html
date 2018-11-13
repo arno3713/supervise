@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>部门管理 | 后台管理</title>
+  <link rel="stylesheet" href="./front/layui/css/layui.css">
+  <link href="./front/css/font-awesome.css" rel="stylesheet">
+  <link href="./front/css/site.css" rel="stylesheet">
+  <script src="./front/js/jquery-2.1.4.min.js"></script>
+  
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <!-- 头部 -->
+  <div class="layui-header">
+  <div class="layui-logo">SUPERVISE</div>
+  <!-- 头部区域（可配合layui已有的水平导航） -->
+  <ul class="layui-nav layui-layout-right">
+    <li class="layui-nav-item">
+      <a href="javascript:;">
+        超级管理员
+      </a>
+    </li>
+    <li class="layui-nav-item"><a href="">退出</a></li>
+  </ul>
+</div>
+
+
+  <!-- 头部 -->
+  <!-- 左侧垂直导航 -->
+  
+
+<div class="layui-side layui-bg-black">
+  <div class="layui-side-scroll">
+    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+    <ul class="layui-nav layui-nav-tree">
+      
+        <li class="layui-nav-item ">
+        
+          <a href="/"><i class="icon-home"></i>首页</a>
+        
+        </li>
+      
+        <li class="layui-nav-item layui-nav-itemed">
+        
+          <a href="javascript:;"><i class="icon-cogs"></i>管理</a>
+          <dl class="layui-nav-child">
+            
+              <dd class="layui-nav-itemed">
+                
+                  <a href="/部门管理.html"><i class="icon-circle-blank"></i>部门管理</a>
+                
+              </dd>
+            
+              <dd class="">
+                
+                  <a href="javascript:;"><i class="icon-circle-blank"></i>员工</a>
+                  <dl class="layui-nav-child">
+                  
+                    <dd class="">
+                      
+                        <a href="/员工管理.html"><i class="icon-circle-blank"></i>员工管理</a>
+                      
+                    </dd>
+                  
+                    <dd class="">
+                      
+                        <a href="/"><i class="icon-circle-blank"></i>三级菜单2</a>
+                      
+                    </dd>
+                  
+                  </dl>
+                
+              </dd>
+            
+          </dl>
+        
+        </li>
+      
+        <li class="layui-nav-item ">
+        
+          <a href="javascript:;"><i class="icon-reorder"></i>多级菜单</a>
+          <dl class="layui-nav-child">
+            
+              <dd class="">
+                
+                  <a href="javascript:;"><i class="icon-circle-blank"></i>一级菜单</a>
+                  <dl class="layui-nav-child">
+                  
+                    <dd class="">
+                      
+                        <a href="/"><i class="icon-circle-blank"></i>二级菜单</a>
+                      
+                    </dd>
+                  
+                    <dd class="">
+                      
+                        <a href="javascript:;"><i class="icon-circle-blank"></i>二级菜单</a>
+                        <dl class="layui-nav-child">
+                        
+                          <dd class="">
+                            <a href="/"><i class="icon-circle-blank"></i>三级菜单</a>
+                          </dd>
+                        
+                          <dd class="">
+                            <a href="/"><i class="icon-circle-blank"></i>三级菜单</a>
+                          </dd>
+                        
+                        </dl>
+                      
+                    </dd>
+                  
+                  </dl>
+                
+              </dd>
+            
+              <dd class="">
+                
+                  <a href="/"><i class="icon-circle-blank"></i>一级菜单</a>
+                
+              </dd>
+            
+          </dl>
+        
+        </li>
+      
+    </ul>
+  </div>
+</div>
+  <!-- 左侧垂直导航 -->
+  
+  <div class="layui-body">
+    <div style="padding: 15px;">
+      <!-- 面包屑导航 -->
+      <p class="layui-breadcrumb">
+        部门管理
+      </p>
+      <!-- 面包屑导航 -->
+      <!-- 内容主体区域 -->
+      <table class="layui-table layui-form"  id="tree-table"></table>
+      <!-- 内容主体区域 -->
+    </div>
+  </div>
+  
+  <!-- <div class="layui-footer"> -->
+  <!-- 底部固定区域 -->
+  <!-- © Supervise For Company - V1.0.0 -->
+<!-- </div>  -->
+</div>
+<script src="./front/layui/layui.all.js"></script>
+<script src="./front/mockjs/mock.js"></script>
+<script src="./front/mockjs/mockjs.js"></script>
+<script src="./front/js/init-lay.js"></script>
+<script src="./front/js/public.js"></script>
+<script src="./front/js/site.js"></script>
+<script>
+  $(function () {
+    var tabCols = [{
+      field: 'id',
+      title: '序号',
+      unresize: true,
+      width: 60,
+      templet:function(d){
+        var _html = '';
+        if(d.hasBranch){
+          "<i class='layui-icon layui-icon-triangle-d'></i>"+d.id
+        }
+      }
+    }, {
+      field: 'department',
+      title: '部门'
+    }, {
+      field: 'number',
+      title: '人数',
+      sort: true
+    }, {
+      field: 'createday',
+      title: '创建时间'
+    }, {
+      title: '操作',
+      templet: function (d) {
+        return getTableActTmp(d, {
+          view: true,
+          delet: true
+        })
+      }
+    }];
+    var tabTools = '<button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe608;</i> 创建新部门</button>';
+    var defaultData = {
+      
+    };
+    var workerManage = initTreeTable('#tree-table', 'api/treeTable', tabCols, tabTools, defaultData);
+  })
+</script>
+</body>
+</html>

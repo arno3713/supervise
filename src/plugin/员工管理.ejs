@@ -1,0 +1,69 @@
+<script>
+  $(function () {
+    var groupData = $_AJAX('api/getGroupId');
+    var positionData = $_AJAX('api/getPositionId');
+    groupData.forEach(function (e, i, arr) {
+      $("#select-group").append("<option value='" + e.id + "'>" + e.department + "</option>");
+    })
+    positionData.forEach(function (e, i, arr) {
+      $("#select-position").append("<option value='" + e.id + "'>" + e.classify + "</option>");
+    })
+    $_FORM.render();
+    //表头
+    var tabCols = [ 
+      {
+        type: 'numbers',
+        title: '序号',
+        unresize: true,
+        width: 60
+      }, {
+        field: 'username',
+        title: '姓名'
+      }, {
+        field: 'workerId',
+        title: '工号',
+        templet:'<div>EIMS-{{d.workerId}}</div>'
+      }, {
+        field: 'sex',
+        title: '性别'
+      }, {
+        field: 'department',
+        title: '所属部门'
+      }, {
+        field: 'classify',
+        title: '职位'
+      }, {
+        field: 'city',
+        title: '籍贯'
+      }, {
+        field: 'hiredate',
+        title: '入职时间',
+        sort: true,
+        templet:'<div>{{filter.dateByYmd(d.hiredate)}}</div>'
+      }, {
+        field: 'birthday',
+        title: '出生日期',
+        sort: true,
+        templet:'<div>{{filter.dateByYmd(d.birthday)}}</div>'
+      }, {
+        field: 'email',
+        title: '邮箱',
+      }, {
+        title: '操作',
+        templet: function (d) {
+          return getTableActTmp(d, {
+            view: true,
+            delet: true
+          })
+        }
+      }
+    ];
+    var tabTools = '<button class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe608;</i> 添加新员工</button>';
+    var defaultData = {name: "", workerId: "", groupId: "-9", positionId: "-9"};
+    var workerManage = initTable('#table-dom', 'api/normalTable', tabCols,tabTools,defaultData);
+    pushForm('formSearch', function (data) {
+      reloadTable(workerManage,data);
+      return false;
+    })
+  })
+</script>

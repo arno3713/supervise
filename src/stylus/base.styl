@@ -1,0 +1,42 @@
+Rem(num)
+  return (num/14)rem
+
+abs(t,r,b,l)
+  position absolute
+  top t
+  right r
+  bottom b
+  left l
+
+getBg(name)
+  str = '../assets/images/icon/'+name+'.png'
+  background url(str) no-repeat
+
+botLine()
+  border-bottom 1px solid #e5e5e5
+
+ellp()
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+ellps()
+  display -webkit-box
+  -webkit-box-orient vertical
+  -webkit-line-clamp 2
+  overflow hidden
+
+toMore(r = 15)
+  position relative
+  &:after
+    content ''
+    display block
+    width reSize(9)
+    height reSize(16)
+    position absolute
+    right reSize(r)
+    top 50%
+    margin-top reSize(-8)
+    getBg('to-more')
+    background-size reSize(9) reSize(16)
+    background-position center
